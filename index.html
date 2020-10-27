@@ -12,10 +12,8 @@ Create and share your own machines using a simple format. Examples and exercises
 <title>Turing machine visualization</title>
 
 <!-- Bootstrap -->
-<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/lumen/bootstrap.min.css" rel="stylesheet"
-integrity="sha384-mvYjhBJXQ9VlNETV/xXShy849GsBHnKzVVudnMOcWUVM/6Nd2ksj8VNng5f8ylyX" crossorigin="anonymous">
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"
-integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@3.4.1/lumen/bootstrap.min.css"
+  integrity="sha256-Tg2t3ds9B3CEkYurKyNc2E8wV5IoJjPgo0pq7meOeHE=" crossorigin="anonymous">
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn"t work if you view the page via file:// -->
 <!--[if lt IE 9]>
@@ -24,28 +22,26 @@ integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8S
 <![endif]-->
 
 <!-- Libraries -->
-<script src="https://cdn.jsdelivr.net/d3js/3.5.17/d3.min.js"
-integrity="sha256-uB5nPcWK8vr5e83snqtMUYJ2n/5TZ3PV9CCRk1pzob4=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/ace/1.2.3/noconflict/ace.js"
-integrity="sha256-Iww1CLn76ly5OU/TUHhiQF9qYy+BpQpg8hI8sIhi32I=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3@3.5.17/d3.min.js"
+  integrity="sha256-dsOXGNHAo/syFnazt+KTBsCQeRmlcW1XKL0bCK4Baec=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/ace/1.2.6/noconflict/ace.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/3.6.0/js-yaml.min.js"
-integrity="sha256-cClLF3hmu8Q/atb1MfoMUg+4h2MTXFMl5+UuvXBWE8g=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/lodash/4.10.0/lodash.min.js"
-integrity="sha256-WplZqoBFo5rcW50YJBm/A1DRy7NnlMHTVDZBan+g2ZU=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-yaml@3.14.0/dist/js-yaml.min.js"
+  integrity="sha256-8mtDTinb8+d2bC/9KhCJoCRBEylWUIV/3YEt5cSUvRk=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.20/lodash.min.js"
+  integrity="sha256-ur/YlHMU96MxHEsy3fHGszZHas7NzH4RQlD4tDVvFhw=" crossorigin="anonymous"></script>
 <script> var lodash = _; </script>
-<script src="https://cdn.jsdelivr.net/lodash/4.10.0/lodash.fp.min.js"
-integrity="sha256-21hyGphPmEWw6dEv1N50zj2CGTCph/CZOkIQHqGoTfs=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/bluebird/3.4.1/bluebird.min.js"
-integrity="sha256-RerJKWlCVH4Or054aLxHuQ4EXbfVwjyYeT99oVAW1pg=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/clipboard.js/1.5.12/clipboard.min.js"
-integrity="sha256-YPxFEfHAzLj9n2T+2UXAKGNCRUINk0BexppujiVhRH0=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/gh/lodash/lodash@4.17.20/dist/lodash.fp.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bluebird@3.7.2/js/browser/bluebird.min.js"
+  integrity="sha256-vV2kNkyUsRqeVvDQOIQ5CC7207KcFSVawXutQKvgwkg=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"
+  integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 <!-- jQuery (necessary for Bootstrap plugins) -->
-<script src="https://cdn.jsdelivr.net/npm/jquery@1.11.3/dist/jquery.min.js"
-integrity="sha384-6ePHh72Rl3hKio4HiJ841psfsRJveeS+aLoaEf3BWfS+gTF0XdAqku2ka8VddikM" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 <!-- Bootstrap: all compiled plugins -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
-integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"
+  integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
 
 <!-- CSS -->
 <link href="build/state-diagram/StateViz.css" rel="stylesheet">
@@ -186,17 +182,6 @@ integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7
   .icon-help-block > * { display: table-cell }
   .icon-help-block > .glyphicon:first-child { padding-right: 0.5em }
 </style>
-<!-- Analytics -->
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-81335742-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
 </head>
 
 
