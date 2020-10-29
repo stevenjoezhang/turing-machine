@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta name="description" content="Visualize and simulate Turing machines as animated state diagrams.
@@ -14,17 +13,12 @@ Create and share your own machines using a simple format. Examples and exercises
 <!-- Bootstrap -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@3.4.1/lumen/bootstrap.min.css"
   integrity="sha256-Tg2t3ds9B3CEkYurKyNc2E8wV5IoJjPgo0pq7meOeHE=" crossorigin="anonymous">
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn"t work if you view the page via file:// -->
-<!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
-  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
 
 <!-- Libraries -->
 <script src="https://cdn.jsdelivr.net/npm/d3@3.5.17/d3.min.js"
   integrity="sha256-dsOXGNHAo/syFnazt+KTBsCQeRmlcW1XKL0bCK4Baec=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/ace/1.2.6/noconflict/ace.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/ace-builds@1.4.12/src-min-noconflict/ace.js"
+  integrity="sha256-OxkpCfqszNQNHEPsyUm4qo2ueQXCnrphYuhgMQid1H8=" crossorigin="anonymous"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/js-yaml@3.14.0/dist/js-yaml.min.js"
   integrity="sha256-8mtDTinb8+d2bC/9KhCJoCRBEylWUIV/3YEt5cSUvRk=" crossorigin="anonymous"></script>
@@ -47,6 +41,9 @@ Create and share your own machines using a simple format. Examples and exercises
 <link href="build/state-diagram/StateViz.css" rel="stylesheet">
 <link href="build/tape/tape.css" rel="stylesheet">
 <style>
+  .d-none {
+    display: none;
+  }
   body {
     font-variant-ligatures: contextual;
   }
@@ -479,16 +476,45 @@ aria-labelledby="importPanelHeader">
 
     <!-- Code Editor -->
     <div class="col-md-5 form-group text-center">
-    <div id="editor-wrapper">
-      <div id="editor-alerts-container"></div>
-      <button type="button" class="btn btn-primary tm-editor-load">
-        Load machine
-      </button>
-      <button type="button" class="btn btn-default tm-editor-revert">
-        Revert to diagram
-      </button>
-      <div id="editor-container" class="tm-editor"></div>
+      <div id="editor-wrapper">
+        <div id="editor-alerts-container"></div>
+        <button type="button" class="btn btn-primary tm-editor-load">
+          Load machine
+        </button>
+        <button type="button" class="btn btn-default tm-editor-revert">
+          Revert to diagram
+        </button>
+        <div id="editor-container" class="tm-editor"></div>
+      </div>
     </div>
+
+    <div class="col-md-8 d-none">
+      <table class="table table-striped rules">
+        <thead>
+          <tr>
+            <th>Index</th>
+            <th>Current State</th>
+            <th>Current Symbol</th>
+            <th>Write Symbol</th>
+            <th>Move</th>
+            <th>New State</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <div class="col-md-4 d-none">
+      <table class="table table-striped states">
+        <thead>
+          <tr>
+            <th>Index</th>
+            <th>Current Tape</th>
+            <th>Current State</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
     </div>
   </div>
 
@@ -496,10 +522,6 @@ aria-labelledby="importPanelHeader">
     $(function () {
       $('[data-has-tooltip]').tooltip()
     });
-    // Polyfill for IE
-    if (!('remove' in Element.prototype)) {
-      Element.prototype.remove = function () { if (this.parentNode) { this.parentNode.removeChild(this); } };
-    }
   </script>
   <!-- Entry point -->
   <script src="build/TMViz.bundle.js" charset="utf-8"></script>
